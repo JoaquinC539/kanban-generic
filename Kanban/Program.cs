@@ -1,6 +1,8 @@
 using Context;
 using dotenv.net;
-using Services;
+using Services.Teams;
+using Services.Users;
+using Services.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddSqlite<KanbanContext>("Data Source=kanban.db");
 
 builder.Services.AddSingleton<PasswordUserHasher>();
+builder.Services.AddScoped<TeamService>();
+builder.Services.AddScoped<UserService>();
 
 if(builder.Environment.IsDevelopment())
 {

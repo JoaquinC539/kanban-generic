@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using Models;
+using Models.Users;
 
-namespace Services;
+namespace Services.Utils;
 
 public class PasswordUserHasher
 {
@@ -13,13 +13,13 @@ public class PasswordUserHasher
         _passwordHasher=new PasswordHasher<User>();
     }
 
-    public string HasPassword(User user,string password)
+    public string HashPassword(User user,string password)
     {
         return _passwordHasher.HashPassword(user,password);
     }
     public bool VerifyPassword(User user, string password)
     {
-        var result=_passwordHasher.VerifyHashedPassword(user,user.Password,password);
+        var result=_passwordHasher.VerifyHashedPassword(user,user.Password!,password);
         return result==PasswordVerificationResult.Success;
     }
 

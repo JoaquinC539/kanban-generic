@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Models;
+using Models.Teams;
+using Models.Users;
 
 namespace Context;
 

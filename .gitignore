@@ -25,3 +25,7 @@ replay_pid*
 appsettings.Development.json
 obj
 bin
+sqlCommands.sql
+*.db
+kanban.db*
+kanban.db
